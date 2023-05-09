@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ layout:decorator="template">
+ 
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Create PC</title>
+</head>
+<body>
+ <div th:replace="template"></div>
+<div class="container mt-5">
+<div class="card">
+ <div class="card-header">
+Create PC
+ </div>
+ <form th:action="@{savePc}" method="post">
+<div class="form-group">
+ <label class="control-label">Nom Pc :</label>
+ <input type="text" name="nomPc" class="form-control"
+th:value="${pc.nomPc}" />
+<span th:errors= ${pc.nomPc} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Prix Pc :</label>
+<input type="text" name="prixPc" class="form-control"
+th:value="${pc.prixPc}" />
+<span th:errors=${pc.prixPc} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Memoire Pc:</label>
+<input type="text" name="memoirePc" class="form-control"
+th:value="${pc.memoirePc}" />
+<span th:errors=${pc.memoirePc} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Processeur Pc</label> :</label>
+<input type="text" name="processeurPc" class="form-control"
+th:value="${pc.processeurPc}"/>
+<span th:errors=${pc.processeurPc} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Disque Dur Pc:</label>
+<input type="text" name="diqueDurPc" class="form-control"
+th:value="${pc.diqueDurPc}"/>
+<span th:errors=${pc.diqueDurPc} class="text-danger"> </span>
+</div>
+<div class="form-group">
+                            <label class="control-label">Marque Pc :</label>
+                            <select    type="text" name="marque" class="form-control"   >
+                                
+
+                                <option th:each="m:${marqs}"  th:value="${m.idMarque}" th:text="${m.nomMarque}"   ></option>
+                            </select>
+   </div>
+
+<div>
+<button type="submit" class="btn btn-primary">Ajouter</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

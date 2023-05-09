@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ layout:decorator="template">
+ 
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Editer Marque</title>
+</head>
+<body>
+ <div th:replace="template"></div>
+<div class="container mt-5">
+<div class="card">
+ <div class="card-header">
+Editer Marque
+ </div>
+<form th:action="@{updateMarque}" method="post">
+<div class="form-group">
+<label class="control-label" hidden>ID Marque :</label>
+ <input type="hidden" name="idMarque" class="form-control"
+th:value="${marque.idMarque}" />
+</div>
+<div class="form-group">
+<label class="control-label">Nom Marque :</label>
+<input type="text" name="nomMarque" class="form-control"
+th:value="${marque.nomMarque}" />
+<span th:errors= ${marque.nomMarque} class="text-danger">
+</span>
+</div>
+
+<div class="form-group">
+<label class="control-label">Pays d'origine :</label>
+ <input type="text" name="paysOrigine" class="form-control"
+th:value="${marque.paysOrigine}" />
+ <span th:errors=${marque.paysOrigine} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">Date de Creation:</label>
+<input type="text" name="dateCreation" class="form-control"
+th:value="${marque.dateCreation}"/>
+<span th:errors=${marque.dateCreation} class="text-danger">
+</span>
+</div>
+
+
+<div>
+<button type="submit" class="btn btn-primary">Valider</button>
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</body>
+</html>
